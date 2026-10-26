@@ -67,6 +67,96 @@ erDiagram
 - Database belum membatasi `jenis_kendaraan_id` pada tabel `tarifs` agar unik. Oleh karena itu, database masih memungkinkan beberapa tarif untuk satu jenis kendaraan, meskipun model `JenisKendaraan` menggunakan relasi `hasOne()`.
 - Relasi dan aturan penghapusan data mengikuti foreign key yang didefinisikan pada migration.
 
+## Cara Instalasi
+
+### Persyaratan
+
+Pastikan perangkat sudah memiliki perangkat lunak berikut:
+
+- PHP
+- Composer
+- MySQL
+- Node.js dan npm
+
+### Langkah-Langkah Instalasi
+
+1. Clone repository dari GitHub.
+
+    ```bash
+    git clone <URL-REPOSITORY>
+    ```
+
+2. Masuk ke direktori project.
+
+    ```bash
+    cd ParkirYai
+    ```
+
+3. Instal dependency PHP.
+
+    ```bash
+    composer install
+    ```
+
+4. Salin file konfigurasi lingkungan.
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Jika menggunakan Windows Command Prompt, jalankan:
+
+    ```bat
+    copy .env.example .env
+    ```
+
+5. Buat application key Laravel.
+
+    ```bash
+    php artisan key:generate
+    ```
+
+6. Konfigurasikan database melalui file `.env`.
+
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=parkiryai
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+    Buat database bernama `parkiryai` melalui MySQL terlebih dahulu. Sesuaikan nama database, username, dan password dengan konfigurasi lingkungan masing-masing.
+
+7. Jalankan migration dan seeder untuk membuat tabel database sekaligus mengisi data awal.
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+8. Instal dependency frontend, termasuk Alpine.js.
+
+    ```bash
+    npm install
+    ```
+
+9. Bangun aset frontend untuk digunakan oleh aplikasi.
+
+    ```bash
+    npm run build
+    ```
+
+10. Jalankan server pengembangan Laravel.
+
+    ```bash
+    php artisan serve
+    ```
+
+11. Buka aplikasi melalui browser dengan alamat berikut:
+
+    `http://127.0.0.1:8000`
+
 ## Informasi Pengujian
 
 Project ini dikembangkan sebagai bagian dari Uji Kompetensi Keahlian (UKK) dan telah diuji saat pelaksanaan UKK pada 18 April 2026.
